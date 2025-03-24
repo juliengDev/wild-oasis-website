@@ -37,7 +37,7 @@ function UpdateProfileForm({ guest, children }) {
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <label htmlFor="nationality">Where are you from?</label>
-          <div className="relative flex items-center">
+          <div className="relative flex aspect-square items-center">
             <Image
               width={30}
               height={30}

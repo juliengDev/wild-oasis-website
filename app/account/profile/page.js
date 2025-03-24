@@ -11,8 +11,7 @@ export default async function Page() {
   const guest = await getGuest(session.user.email);
 
   // CHANGE
-  const countryFlag = "pt.jpg";
-  const nationality = "portugal";
+
   return (
     <div>
       <h2 className="mb-4 text-2xl font-semibold text-accent-400">
