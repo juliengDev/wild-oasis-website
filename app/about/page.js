@@ -10,7 +10,7 @@ export const metadata = {
 };
 export default async function Page() {
   const cabins = await getCabins();
-  
+
   return (
     <div className="grid grid-cols-5 items-center gap-x-24 gap-y-32 text-lg">
       <div className="col-span-3">
@@ -52,6 +52,7 @@ export default async function Page() {
         <Image
           src="/about-2.jpg"
           fill
+          placeholder="blur"
           className="object-cover"
           alt="Family that manages The Wild Oasis"
         />

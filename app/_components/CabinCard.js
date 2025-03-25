@@ -11,6 +11,7 @@ function CabinCard({ cabin }) {
         <Image
           src={image}
           fill
+          placeholder="blur"
           alt={`Cabin ${name}`}
           className="flex-1 border-r border-primary-800 object-cover"
         />
