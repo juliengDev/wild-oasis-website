@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { updateGuest } from "../_lib/actions";
+import SubmitButton from "./SubmitButton";
 
 function UpdateProfileForm({ guest, children }) {
   const [count, setCount] = useState();
