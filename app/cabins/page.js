@@ -4,7 +4,7 @@ import Spinner from "@/app/_components/Spinner";
 import Filter from "@/app/_components/Filter";
 import ReservationReminder from "../_components/ReservationReminder";
 
-export const revalidate = 3600;
+// export const revalidate = 3600; (if static rendering)
 /* in seconds, used for static page only, by using searchParams on the page component
 you turn that component page into a dynamic page */
 

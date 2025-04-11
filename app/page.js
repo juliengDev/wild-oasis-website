@@ -4,7 +4,7 @@ import bg from "@/public/bg.png";
 
 export default function Page() {
   return (
-    <div className="mt-24">
+    <div className="mt-2 md:mt-24">
       <Image
         src={bg}
         fill
@@ -14,7 +14,7 @@ export default function Page() {
       />
 
       <div className="relative z-10 text-center">
-        <h1 className="mb-10 text-8xl font-normal tracking-tight text-primary-50">
+        <h1 className="mb-20 text-6xl font-normal tracking-tight text-primary-50 md:mb-10 md:text-8xl">
           Welcome to paradise.
         </h1>
         <Link
