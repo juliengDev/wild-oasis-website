@@ -1,12 +1,10 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 import { updateGuest } from "../_lib/actions";
 import SubmitButton from "./SubmitButton";
 
 function UpdateProfileForm({ guest, children }) {
-  const [count, setCount] = useState();
-  const { fullName, email, nationality, nationalID, countryFlag } = guest;
+  const { fullName, email, nationalID, countryFlag } = guest;
 
   return (
     <form
@@ -40,7 +38,7 @@ function UpdateProfileForm({ guest, children }) {
             <Image
               width={30}
               height={30}
-              src={countryFlag}
+              src={countryFlag ? countryFlag : "https://flagcdn.com/fr.svg"}
               alt="Country flag"
               name="countryFlag"
               className="ml-4 h-5 flex-1 rounded-sm object-cover"
@@ -54,7 +52,7 @@ function UpdateProfileForm({ guest, children }) {
         <label htmlFor="nationalID">National ID number</label>
         <input
           name="nationalID"
-          defaultValue={nationalID}
+          defaultValue={nationalID ? nationalID : ""}
           className="w-full rounded-sm bg-primary-200 px-5 py-3 text-primary-800 shadow-sm"
         />
       </div>
