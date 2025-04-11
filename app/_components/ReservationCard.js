@@ -24,17 +24,17 @@ function ReservationCard({ booking, onDelete }) {
   } = booking;
 
   return (
-    <div className="flex border border-primary-800">
+    <div className="flex flex-col border border-primary-800 md:flex-row">
       <div className="relative aspect-square h-32">
         <Image
           src={image}
           fill
           alt={`Cabin ${name}`}
-          className="border-r border-primary-800 object-cover"
+          className="border-r border-primary-800 object-cover md:object-cover"
         />
       </div>
 
-      <div className="flex flex-grow flex-col px-6 py-3">
+      <div className="flex flex-grow flex-col gap-4 px-6 py-3">
         <div className="flex items-center justify-between">
           <h3 className="text-xl font-semibold">
             {numNights} nights in Cabin {name}
@@ -58,9 +58,9 @@ function ReservationCard({ booking, onDelete }) {
           ) &mdash; {format(new Date(endDate), "EEE, MMM dd yyyy")}
         </p>
 
-        <div className="mt-auto flex items-baseline gap-5">
+        <div className="mt-auto flex flex-col items-baseline md:flex-row md:gap-5">
           <p className="text-xl font-semibold text-accent-400">${totalPrice}</p>
-          <p className="text-primary-300">&bull;</p>
+
           <p className="text-lg text-primary-300">
             {numGuests} guest{numGuests > 1 && "s"}
           </p>
