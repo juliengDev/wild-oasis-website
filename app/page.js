@@ -8,6 +8,7 @@ export default function Page() {
       <Image
         src={bg}
         fill
+        sizes="(100vw)"
         placeholder="blur"
         className="object-cover object-top"
         alt="Mountains and forests with two cabins"

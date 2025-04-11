@@ -3,58 +3,61 @@
 
 import Link from "next/link";
 
-export default function NavigationLinks({
-  session,
-  isMobile = false,
-  closeMenu = () => {},
-}) {
+export default function NavigationLinks({ session, isMobile = false, closeMenu = () => {} }) {
+  // Animation delay for staggered entrance
+  const getAnimationDelay = (index) => {
+    if (!isMobile) return 0;
+    return `${100 + (index * 50)}ms`;
+  };
+
+  const navItems = [
+    { href: "/cabins", label: "Cabins" },
+    { href: "/about", label: "About" },
+    { 
+      href: "/account", 
+      label: "Guest area",
+      hasImage: session?.user?.image,
+      image: session?.user?.image,
+      alt: session?.user?.name
+    }
+  ];
+
   return (
-    <ul
-      className={`flex text-xl font-semibold text-primary-100 ${isMobile ? "flex-col items-center gap-8 text-2xl" : "flex-row items-center gap-16"}`}
-    >
-      <li>
-        <Link
-          href="/cabins"
-          className="transition-colors hover:text-accent-400"
-          onClick={isMobile ? closeMenu : undefined}
+    <ul className={`flex ${isMobile ? "flex-col items-center gap-8 text-2xl" : "flex-row items-center gap-16"}`}>
+      {navItems.map((item, index) => (
+        <li 
+          key={item.href}
+          style={{ 
+            transitionDelay: getAnimationDelay(index),
+            animation: isMobile ? `fadeInUp 0.5s forwards ${getAnimationDelay(index)}` : 'none'
+          }}
+          className={isMobile ? "opacity-0" : ""}
         >
-          Cabins
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/about"
-          className="transition-colors hover:text-accent-400"
-          onClick={isMobile ? closeMenu : undefined}
-        >
-          About
-        </Link>
-      </li>
-      <li>
-        {session?.user?.image ? (
-          <Link
-            href="/account"
-            className="flex items-center gap-4 transition-colors hover:text-accent-400"
-            onClick={isMobile ? closeMenu : undefined}
-          >
-            <img
-              className="h-8 rounded-full"
-              src={session.user.image}
-              alt={session.user.name}
-              referrerPolicy="no-referrer"
-            />
-            <span>Guest area</span>
-          </Link>
-        ) : (
-          <Link
-            href="/account"
-            className="transition-colors hover:text-accent-400"
-            onClick={isMobile ? closeMenu : undefined}
-          >
-            Guest area
-          </Link>
-        )}
-      </li>
+          {item.hasImage ? (
+            <Link
+              href={item.href}
+              className="flex items-center gap-4 transition-all duration-300 hover:text-accent-400"
+              onClick={isMobile ? closeMenu : undefined}
+            >
+              <img
+                className="h-8 rounded-full"
+                src={item.image}
+                alt={item.alt}
+                referrerPolicy="no-referrer"
+              />
+              <span>{item.label}</span>
+            </Link>
+          ) : (
+            <Link
+              href={item.href}
+              className="transition-all duration-300 hover:text-accent-400"
+              onClick={isMobile ? closeMenu : undefined}
+            >
+              {item.label}
+            </Link>
+          )}
+        </li>
+      ))}
     </ul>
   );
 }
