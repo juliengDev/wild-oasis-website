@@ -51,7 +51,7 @@ function DateSelector({ settings, bookedDates, cabin }) {
         }
       />
 
-      <div className="flex h-[72px] items-center justify-between bg-accent-500 px-8 text-primary-800">
+      <div className="flex-col justify-center bg-accent-500 px-8 py-5 text-primary-800 md:flex md:justify-between">
         <div className="flex items-baseline gap-6">
           <p className="flex items-baseline gap-2">
             {discount > 0 ? (
