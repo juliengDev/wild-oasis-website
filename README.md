@@ -98,9 +98,10 @@ This project implements several advanced Next.js and React patterns:
 
 ---
 
+
 ## 🚀 Live Demo
 
-🔗 [Wild Oasis Website](https://wildoasis-booking.vercel.app/)
+🔗 [https://juliengdev-wildoasis.vercel.app/](https://juliengdev-wildoasis.vercel.app/)
 
 ---
 
