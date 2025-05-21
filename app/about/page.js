@@ -45,17 +45,30 @@ export default async function Page() {
           src={about1}
           alt="Family sitting around a fire pit in front of cabin"
           className="w-full"
+          placeholder="blur"
         />
       </div>
 
-      <div className="relative col-span-1 mx-auto aspect-square w-full max-w-lg md:max-w-none lg:col-span-2">
+      <div className="col-span-1 mx-auto w-full max-w-lg md:max-w-none lg:col-span-2">
         <Image
           src={about2}
+          className="object-cover"
+          placeholder="blur"
+          alt="Family that manages The Wild Oasis"
+        />
+      </div>
+      {/* si tu dois utiliser un chemin absolu pour l image : 
+      wrap avec une div et donne une dimension qvec une position relative
+      permet de rendre l image responsive en specifiant la taille du parent et non celle de l image
+      
+      <div className="relative col-span-1 mx-auto aspect-square w-full max-w-lg md:max-w-none lg:col-span-2">
+        <Image
+          src="/about-2.jpg"
           fill
           className="object-cover"
           alt="Family that manages The Wild Oasis"
         />
-      </div>
+      </div> */}
 
       <div className="col-span-1 lg:col-span-3">
         <h1 className="mb-6 text-3xl font-medium text-accent-400 md:mb-8 lg:mb-10 lg:text-4xl">
